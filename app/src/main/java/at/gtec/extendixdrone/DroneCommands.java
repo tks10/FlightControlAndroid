@@ -1,5 +1,7 @@
 package at.gtec.extendixdrone;
 
+import android.util.Log;
+
 import at.gtec.droneapi.ParrotDrone;
 
 /**
@@ -78,6 +80,7 @@ public class DroneCommands {
         try {
             _drone.DisableStabilization();
             _drone.Yaw(value,time);
+            Log.e("Rotate", "value: " + Integer.toString((int)value) + ", time: " + Integer.toString(time));
             _drone.EnableStabilization();
         } catch (Exception e) {
             e.printStackTrace();

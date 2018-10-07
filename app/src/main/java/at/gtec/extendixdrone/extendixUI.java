@@ -483,8 +483,8 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _btnShake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DroneCommands.Shake(_drone, (byte)50, 800, 4);
-                // shake();
+                // roneCommands.Shake(_drone, (byte)70, 300, 4);
+                shake();
                 ShowToast("TakeOff");
             }
         });
@@ -564,9 +564,10 @@ public class extendixUI extends Activity implements View.OnClickListener {
 
     private void shake() {
         Handler mHandler = new Handler();
-        final byte speed = 20;
-        final int duration = 1000;
-        final int margin = 100;
+        final byte speed = 80;
+        final int duration = 500;
+        final int margin = 200;
+        final int count = 10;
         final Runnable rotateRight = new Runnable() {
             @Override
             public void run() {
@@ -576,16 +577,14 @@ public class extendixUI extends Activity implements View.OnClickListener {
         final Runnable rotateLeft = new Runnable() {
             @Override
             public void run() {
-                DroneCommands.DroneRotate(_drone, speed, duration);
+                DroneCommands.DroneRotate(_drone, (byte)-speed, duration);
             }
         };
 
-        mHandler.postDelayed(rotateRight, 0);
-        mHandler.postDelayed(rotateLeft, (duration+margin));
-        mHandler.postDelayed(rotateRight, (duration+margin)*2);
-        mHandler.postDelayed(rotateLeft, (duration+margin)*3);
-        mHandler.postDelayed(rotateRight, (duration+margin)*4);
-        mHandler.postDelayed(rotateLeft, (duration+margin)*5);
+        for (int i=0; i<count; i++) {
+            mHandler.postDelayed(rotateRight, (duration+margin)*(count*2));
+            mHandler.postDelayed(rotateLeft, (duration+margin)*(count*2 + 1));
+        }
     }
 
     private byte getRotationSpeed() {
