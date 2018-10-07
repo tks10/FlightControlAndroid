@@ -504,6 +504,22 @@ public class extendixUI extends Activity implements View.OnClickListener {
         }
     }
 
+    private byte getRotationSpeed() {
+        return Byte.parseByte(_etRtSpeed.getText().toString());
+    }
+
+    private byte getRotationDuration() {
+        return Byte.parseByte(_etRtDuration.getText().toString());
+    }
+
+    private byte getForwardSpeed() {
+        return Byte.parseByte(_etFwSpeed.getText().toString());
+    }
+
+    private byte getForwardDuration() {
+        return Byte.parseByte(_etFwDuration.getText().toString());
+    }
+
     private void AddToLogBox(String message)
     {
         _messageLogList.add(message);
