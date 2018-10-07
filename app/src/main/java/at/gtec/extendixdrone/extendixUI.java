@@ -477,6 +477,32 @@ public class extendixUI extends Activity implements View.OnClickListener {
             }
         });
 
+        // Rotation and Forward
+
+        _btnRotateRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DroneCommands.DroneRotate(_drone, getRotationSpeed(), getRotationDuration());
+                ShowToast("Rotate Right");
+            }
+        });
+
+        _btnRotateLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DroneCommands.DroneRotate(_drone, (byte)-getRotationSpeed(), getRotationDuration());
+                ShowToast("Rotate Left");
+            }
+        });
+
+        _btnForward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DroneCommands.DroneMove(_drone, getForwardSpeed(), getForwardDuration());
+                ShowToast("Forward");
+            }
+        });
+
         //add button events
         _btnDroneConnect.setOnClickListener(this);
         _btnEmergencyStop.setOnClickListener(this);
