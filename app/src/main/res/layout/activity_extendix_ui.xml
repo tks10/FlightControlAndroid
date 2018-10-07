@@ -253,7 +253,7 @@
                     android:layout_marginBottom="2mm"
                     android:background="#B1B1B1"
                     android:layout_marginRight="5dp" />
-                
+
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -261,7 +261,18 @@
                     android:text="Forward"
                     android:id="@+id/btnForward"
                     android:layout_marginBottom="2mm"
+                    android:background="#B1B1B1"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Forward"
+                    android:id="@+id/btnShake"
+                    android:layout_marginBottom="2mm"
                     android:background="#B1B1B1" />
+
             </LinearLayout>
 
             <LinearLayout
