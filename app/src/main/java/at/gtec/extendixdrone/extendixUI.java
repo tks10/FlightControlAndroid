@@ -133,6 +133,10 @@ public class extendixUI extends Activity implements View.OnClickListener {
 
     private Button _btnTakeOff = null;
 
+    private Button _btnForward = null;
+    private Button _btnRotateRight = null;
+    private Button _btnRotateLeft = null;
+
     private EditText _etRtSpeed = null;
     private EditText _etRtDuration = null;
     private EditText _etFwSpeed = null;
@@ -439,6 +443,10 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _btnTakeVideo = (Button)findViewById(R.id.btnTakeVideo);
 
         _btnTakeOff = (Button)findViewById(R.id.btnTakeOff);
+
+        _btnRotateLeft = (Button)findViewById(R.id.btnRotateLeft);
+        _btnRotateRight = (Button)findViewById(R.id.btnRotateRight);
+        _btnForward = (Button)findViewById(R.id.btnForward);
 
         _etRtSpeed = (EditText)findViewById(R.id.etRotationSpeed);
         _etRtDuration = (EditText)findViewById(R.id.etRotationDuration);
