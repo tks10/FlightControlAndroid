@@ -84,6 +84,19 @@ public class DroneCommands {
         }
     }
 
+    public static void Shake(ParrotDrone _drone, Byte value, int time, int count){
+        try {
+            _drone.DisableStabilization();
+            for (int i=0; i<count; i++) {
+                _drone.Yaw(value, time);
+                _drone.Yaw((byte)-value, time);
+            }
+            _drone.EnableStabilization();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Tries to start a video stream.
      * @param _drone The drone connected.
