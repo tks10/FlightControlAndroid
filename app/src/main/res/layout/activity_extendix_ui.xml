@@ -273,6 +273,15 @@
                     android:layout_marginBottom="2mm"
                     android:background="#B1B1B1" />
 
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Swing"
+                    android:id="@+id/btnSing"
+                    android:layout_marginBottom="2mm"
+                    android:background="#B1B1B1" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -309,6 +318,15 @@
                     android:background="#61e361"
                     android:layout_marginRight="5dp" />
 
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Land"
+                    android:id="@+id/btnLand"
+                    android:layout_marginBottom="2mm"
+                    android:background="#61e361"
+                    android:layout_marginRight="5dp" />
 
                 <Button
                     android:layout_width="0dp"

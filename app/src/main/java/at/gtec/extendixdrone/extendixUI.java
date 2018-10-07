@@ -133,6 +133,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
     private Button _btnTakeVideo = null;
 
     private Button _btnTakeOff = null;
+    private Button _btnLand = null;
 
     private Button _btnForward = null;
     private Button _btnRotateRight = null;
@@ -249,6 +250,10 @@ public class extendixUI extends Activity implements View.OnClickListener {
                         _panValue=0;
                         _tiltValue=0;
                         DroneCommands.DroneChangeCameraOrientation(_drone,_tiltValue,_panValue);
+                        break;
+                    }
+                    case "KEY_SHAKE":{
+                        shake();
                         break;
                     }
                     default:
@@ -445,6 +450,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _btnTakeVideo = (Button)findViewById(R.id.btnTakeVideo);
 
         _btnTakeOff = (Button)findViewById(R.id.btnTakeOff);
+        _btnLand = (Button)findViewById(R.id.btnLand);
 
         _btnRotateLeft = (Button)findViewById(R.id.btnRotateLeft);
         _btnRotateRight = (Button)findViewById(R.id.btnRotateRight);
@@ -480,12 +486,20 @@ public class extendixUI extends Activity implements View.OnClickListener {
             }
         });
 
+        _btnLand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DroneCommands.DroneLand(_drone);
+                ShowToast("Land");
+            }
+        });
+
         _btnShake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // roneCommands.Shake(_drone, (byte)70, 300, 4);
                 shake();
-                ShowToast("TakeOff");
+                ShowToast("shake");
             }
         });
 
@@ -582,9 +596,41 @@ public class extendixUI extends Activity implements View.OnClickListener {
         };
 
         for (int i=0; i<count; i++) {
-            mHandler.postDelayed(rotateRight, (duration+margin)*(count*2));
-            mHandler.postDelayed(rotateLeft, (duration+margin)*(count*2 + 1));
+            mHandler.postDelayed(rotateRight, (duration+margin)*(i*2));
+            mHandler.postDelayed(rotateLeft, (duration+margin)*(i*2 + 1));
         }
+    }
+
+    private void swing() {
+        Handler mHandler = new Handler();
+        final byte speed = 40;
+        final int duration = 700;
+        final int margin = 200;
+        final int count = 10;
+        final Runnable moveRight = new Runnable() {
+            @Override
+            public void run() {
+                DroneCommands.DroneMove(_drone, speed, duration);
+            }
+        };
+        final Runnable moveLeft = new Runnable() {
+            @Override
+            public void run() {
+                DroneCommands.DroneMove(_drone, (byte)-speed, duration);
+            }
+        };
+        final Runnable land = new Runnable() {
+            @Override
+            public void run() {
+                DroneCommands.DroneLand(_drone);
+            }
+        };
+
+        for (int i=0; i<count; i++) {
+            mHandler.postDelayed(moveRight, (duration+margin)*(i*2));
+            mHandler.postDelayed(moveLeft, (duration+margin)*(i*2 + 1));
+        }
+        mHandler.postDelayed(land, (duration+margin)*(count*2));
     }
 
     private byte getRotationSpeed() {
