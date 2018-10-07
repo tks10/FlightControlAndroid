@@ -182,11 +182,11 @@ public class extendixUI extends Activity implements View.OnClickListener {
                         break;
                     }
                     case "KEY_FORWARD": {
-                        DroneCommands.DroneMove(_drone, ManeuverSpeedSlow, ManeuverDuration);
+                        DroneCommands.DroneMove(_drone, getForwardSpeed(), getForwardDuration());
                         break;
                     }
                     case "KEY_FORWARD_FAST": {
-                        DroneCommands.DroneMove(_drone, ManeuverSpeedFast, ManeuverDuration);
+                        DroneCommands.DroneMove(_drone, getForwardSpeed(), getForwardDuration());
                         break;
                     }
                     case "KEY_BACK": {
@@ -198,11 +198,11 @@ public class extendixUI extends Activity implements View.OnClickListener {
                         break;
                     }
                     case "KEY_TURN_LEFT": {
-                        DroneCommands.DroneRotate(_drone, (byte)-ManeuverSpeedSlow, ManeuverDuration);
+                        DroneCommands.DroneRotate(_drone, (byte)-getRotationSpeed(), getRotationDuration());
                         break;
                     }
                     case "KEY_TURN_RIGHT": {
-                        DroneCommands.DroneRotate(_drone, ManeuverSpeedSlow, ManeuverDuration);
+                        DroneCommands.DroneRotate(_drone, getRotationSpeed(), getRotationDuration());
                         break;
                     }
                     case "KEY_TAKE_PICTURE": {
