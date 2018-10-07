@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -550,20 +551,46 @@ public class extendixUI extends Activity implements View.OnClickListener {
         }
     }
 
-    private byte getRotationSpeed() {
-        return Byte.parseByte(_etRtSpeed.getText().toString());
+    private void shake() {
+        Handler mHandler = new Handler();
+        final byte speed = 20;
+        final int duration = 1000;
+        final int margin = 100;
+        final Runnable rotateRight = new Runnable() {
+            @Override
+            public void run() {
+                DroneCommands.DroneRotate(_drone, speed, duration);
+            }
+        };
+        final Runnable rotateLeft = new Runnable() {
+            @Override
+            public void run() {
+                DroneCommands.DroneRotate(_drone, speed, duration);
+            }
+        };
+
+        mHandler.postDelayed(rotateRight, 0);
+        mHandler.postDelayed(rotateLeft, (duration+margin));
+        mHandler.postDelayed(rotateRight, (duration+margin)*2);
+        mHandler.postDelayed(rotateLeft, (duration+margin)*3);
+        mHandler.postDelayed(rotateRight, (duration+margin)*4);
+        mHandler.postDelayed(rotateLeft, (duration+margin)*5);
     }
 
-    private byte getRotationDuration() {
-        return Byte.parseByte(_etRtDuration.getText().toString());
+    private byte getRotationSpeed() {
+        return (byte)Integer.parseInt(_etRtSpeed.getText().toString());
+    }
+
+    private int getRotationDuration() {
+        return Integer.parseInt(_etRtDuration.getText().toString());
     }
 
     private byte getForwardSpeed() {
-        return Byte.parseByte(_etFwSpeed.getText().toString());
+        return (byte)Integer.parseInt(_etFwSpeed.getText().toString());
     }
 
-    private byte getForwardDuration() {
-        return Byte.parseByte(_etFwDuration.getText().toString());
+    private int getForwardDuration() {
+        return Integer.parseInt(_etFwDuration.getText().toString());
     }
 
     private void AddToLogBox(String message)
