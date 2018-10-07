@@ -258,6 +258,17 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".33"
+                    android:text="Take Off"
+                    android:id="@+id/btnTakeOff"
+                    android:layout_marginBottom="2mm"
+                    android:background="#61e361"
+                    android:layout_marginRight="5dp" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
                     android:text="Emergency Stop"
                     android:id="@+id/btnEmergencyStop"
                     android:layout_marginBottom="2mm"
