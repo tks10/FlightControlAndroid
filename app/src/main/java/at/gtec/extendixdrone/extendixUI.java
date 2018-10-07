@@ -40,9 +40,9 @@ public class extendixUI extends Activity implements View.OnClickListener {
     private static byte DeltaTilt=5;
     private static byte DeltaPan=5;
     private static int ManeuverDuration = 2000;
-    private static byte ManeuverSpeedVerySlow = 20;
-    private static byte ManeuverSpeedSlow = 50;
-    private static byte ManeuverSpeedFast = 80;
+    private static byte ManeuverSpeedVerySlow = 10;
+    private static byte ManeuverSpeedSlow = 20;
+    private static byte ManeuverSpeedFast = 40;
     private static byte ManeuverSpeedMax = 100;
     //endregion
 
@@ -129,6 +129,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
     private byte _panValue = 0;
 
     private Button _btnTakePicture = null;
+    private Button _btnTakeVideo = null;
 
     //endregion
 
@@ -428,6 +429,23 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _btnEmergencyStop = (Button)findViewById(R.id.btnEmergencyStop);
         _pvvVideo = (ParrotVideoView)findViewById(R.id.pvvVideo);
         _btnTakePicture = (Button)findViewById(R.id.btnTakePicture);
+        _btnTakeVideo = (Button)findViewById(R.id.btnTakeVideo);
+
+        _btnTakePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DroneCommands.DroneTakePicture(_drone);
+                ShowToast("Take!!");
+            }
+        });
+
+        _btnTakeVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DroneCommands.DroneVideoStream(_drone);
+                ShowToast("Take!!");
+            }
+        });
 
         //add button events
         _btnDroneConnect.setOnClickListener(this);

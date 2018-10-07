@@ -158,21 +158,113 @@
                 android:id="@+id/lvLog"
                 android:layout_marginBottom="2mm" />
 
-            <Button
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Emergency Stop"
-                android:id="@+id/btnTakePicture"
-                android:layout_marginBottom="2mm"
-                android:background="#6161e3" />
+                android:layout_height="wrap_content">
 
-            <Button
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="RtSpeed:"
+                    android:textSize="6pt" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/etRotationSpeed"
+                    android:inputType="number"
+                    android:text="50"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:text="RtDuration:"
+                    android:textSize="6pt" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/etRotationDuration"
+                    android:inputType="number"
+                    android:text="3000"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="FwSpeed:"
+                    android:textSize="6pt" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/etForwardSpeed"
+                    android:inputType="number"
+                    android:text="20"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:text="FwDuration:"
+                    android:textSize="6pt" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/etForwardDuration"
+                    android:inputType="number"
+                    android:text="3000"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Take Picture"
-                android:id="@+id/btnEmergencyStop"
-                android:layout_marginBottom="2mm"
-                android:background="#e36161" />
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Take Picture"
+                    android:id="@+id/btnTakePicture"
+                    android:layout_marginBottom="2mm"
+                    android:background="#6161e3"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Take Video"
+                    android:id="@+id/btnTakeVideo"
+                    android:layout_marginBottom="2mm"
+                    android:background="#6161e3"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Emergency Stop"
+                    android:id="@+id/btnEmergencyStop"
+                    android:layout_marginBottom="2mm"
+                    android:background="#e36161" />
+            </LinearLayout>
+
+
 
             <at.gtec.droneapi.ParrotVideoView
                 android:id="@+id/pvvVideo"
