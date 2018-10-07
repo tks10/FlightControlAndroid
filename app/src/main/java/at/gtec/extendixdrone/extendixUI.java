@@ -128,6 +128,8 @@ public class extendixUI extends Activity implements View.OnClickListener {
      */
     private byte _panValue = 0;
 
+    private Button _btnTakePicture = null;
+
     //endregion
 
     //region Interfaces...
@@ -425,7 +427,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _btnDroneConnect=  (Button) findViewById(R.id.btnConnect);
         _btnEmergencyStop = (Button)findViewById(R.id.btnEmergencyStop);
         _pvvVideo = (ParrotVideoView)findViewById(R.id.pvvVideo);
-
+        _btnTakePicture = (Button)findViewById(R.id.btnTakePicture);
 
         //add button events
         _btnDroneConnect.setOnClickListener(this);
