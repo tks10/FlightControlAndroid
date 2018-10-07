@@ -229,6 +229,41 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Take Picture"
+                    android:id="@+id/btnRotateRight"
+                    android:layout_marginBottom="2mm"
+                    android:background="#A1A1A1"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Take Video"
+                    android:id="@+id/btnRotateLeft"
+                    android:layout_marginBottom="2mm"
+                    android:background="#A1A1A1"
+                    android:layout_marginRight="5dp" />
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Emergency Stop"
+                    android:id="@+id/btnForward"
+                    android:layout_marginBottom="2mm"
+                    android:background="#A1A1A1" />
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
