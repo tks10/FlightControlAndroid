@@ -137,6 +137,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
     private Button _btnForward = null;
     private Button _btnRotateRight = null;
     private Button _btnRotateLeft = null;
+    private Button _btnShake = null;
 
     private EditText _etRtSpeed = null;
     private EditText _etRtDuration = null;
@@ -448,6 +449,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _btnRotateLeft = (Button)findViewById(R.id.btnRotateLeft);
         _btnRotateRight = (Button)findViewById(R.id.btnRotateRight);
         _btnForward = (Button)findViewById(R.id.btnForward);
+        _btnShake = (Button)findViewById(R.id.btnShake);
 
         _etRtSpeed = (EditText)findViewById(R.id.etRotationSpeed);
         _etRtDuration = (EditText)findViewById(R.id.etRotationDuration);
@@ -474,6 +476,15 @@ public class extendixUI extends Activity implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 DroneCommands.DroneTakeOff(_drone);
+                ShowToast("TakeOff");
+            }
+        });
+
+        _btnShake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DroneCommands.Shake(_drone, (byte)50, 800, 4);
+                // shake();
                 ShowToast("TakeOff");
             }
         });
