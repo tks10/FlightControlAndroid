@@ -131,6 +131,11 @@ public class extendixUI extends Activity implements View.OnClickListener {
     private Button _btnTakePicture = null;
     private Button _btnTakeVideo = null;
 
+    private EditText _etRtSpeed = null;
+    private EditText _etRtDuration = null;
+    private EditText _etFwSpeed = null;
+    private EditText _etFwDuration = null;
+
     //endregion
 
     //region Interfaces...
@@ -430,6 +435,11 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _pvvVideo = (ParrotVideoView)findViewById(R.id.pvvVideo);
         _btnTakePicture = (Button)findViewById(R.id.btnTakePicture);
         _btnTakeVideo = (Button)findViewById(R.id.btnTakeVideo);
+
+        _etRtSpeed = (EditText)findViewById(R.id.etRotationSpeed);
+        _etRtDuration = (EditText)findViewById(R.id.etRotationDuration);
+        _etFwSpeed = (EditText)findViewById(R.id.etForwardSpeed);
+        _etFwDuration = (EditText)findViewById(R.id.etForwardDuration);
 
         _btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
