@@ -129,6 +129,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
      */
     private byte _panValue = 0;
 
+    private Button _btnResetCamera = null;
     private Button _btnTakePicture = null;
     private Button _btnTakeVideo = null;
 
@@ -255,6 +256,10 @@ public class extendixUI extends Activity implements View.OnClickListener {
                     }
                     case "KEY_SHAKE":{
                         shake();
+                        break;
+                    }
+                    case "KEY_SWING":{
+                        swing();
                         break;
                     }
                     default:
@@ -462,7 +467,19 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _etRtSpeed = (EditText)findViewById(R.id.etRotationSpeed);
         _etRtDuration = (EditText)findViewById(R.id.etRotationDuration);
         _etFwSpeed = (EditText)findViewById(R.id.etForwardSpeed);
-        _etFwDuration = (EditText)findViewById(R.id.etForwardDuration);
+
+        _btnResetCamera = (Button)findViewById(R.id.btnResetCamera);
+
+        _btnResetCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _panValue=0;
+                _tiltValue=0;
+                DroneCommands.DroneChangeCameraOrientation(_drone,_tiltValue,_panValue);
+                ShowToast("Reset Camera");
+            }
+        });
+
 
         _btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -612,20 +629,20 @@ public class extendixUI extends Activity implements View.OnClickListener {
 
     private void swing() {
         Handler mHandler = new Handler();
-        final byte speed = 40;
-        final int duration = 700;
-        final int margin = 200;
+        final byte speed = 20;
+        final int duration = 2500;
+        final int margin = 500;
         final int count = 10;
         final Runnable moveRight = new Runnable() {
             @Override
             public void run() {
-                DroneCommands.DroneMove(_drone, speed, duration);
+                DroneCommands.DroneTurn(_drone, speed, duration);
             }
         };
         final Runnable moveLeft = new Runnable() {
             @Override
             public void run() {
-                DroneCommands.DroneMove(_drone, (byte)-speed, duration);
+                DroneCommands.DroneTurn(_drone, (byte)-speed, duration);
             }
         };
         final Runnable land = new Runnable() {

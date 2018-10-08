@@ -271,7 +271,8 @@
                     android:text="Shake"
                     android:id="@+id/btnShake"
                     android:layout_marginBottom="2mm"
-                    android:background="#B1B1B1" />
+                    android:background="#B1B1B1"
+                    android:layout_marginRight="5dp" />
 
                 <Button
                     android:layout_width="0dp"
@@ -288,6 +289,16 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".33"
+                    android:text="Reset Camera"
+                    android:id="@+id/btnResetCamera"
+                    android:layout_marginBottom="2mm"
+                    android:background="#6161e3"
+                    android:layout_marginRight="5dp" />
+
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

@@ -48,6 +48,7 @@ public class DroneCommands {
         try {
             _drone.DisableStabilization();
             _drone.Pitch(value,time);
+            Log.e("Pitch", "value: " + Integer.toString((int)value) + ", time: " + Integer.toString(time));
             _drone.EnableStabilization();
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,6 +65,7 @@ public class DroneCommands {
         try {
             _drone.DisableStabilization();
             _drone.Roll(value,time);
+            Log.e("Turn", "value: " + Integer.toString((int)value) + ", time: " + Integer.toString(time));
             _drone.EnableStabilization();
         } catch (Exception e) {
             e.printStackTrace();
@@ -81,19 +83,6 @@ public class DroneCommands {
             _drone.DisableStabilization();
             _drone.Yaw(value,time);
             Log.e("Rotate", "value: " + Integer.toString((int)value) + ", time: " + Integer.toString(time));
-            _drone.EnableStabilization();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void Shake(ParrotDrone _drone, Byte value, int time, int count){
-        try {
-            _drone.DisableStabilization();
-            for (int i=0; i<count; i++) {
-                _drone.Yaw(value, time);
-                _drone.Yaw((byte)-value, time);
-            }
             _drone.EnableStabilization();
         } catch (Exception e) {
             e.printStackTrace();
