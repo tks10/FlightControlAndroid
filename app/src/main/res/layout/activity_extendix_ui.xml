@@ -208,7 +208,7 @@
                     android:layout_weight="1"
                     android:id="@+id/etForwardSpeed"
                     android:inputType="number"
-                    android:text="20"
+                    android:text="30"
                     android:textAlignment="center" />
 
                 <TextView

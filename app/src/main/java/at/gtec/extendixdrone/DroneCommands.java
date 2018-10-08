@@ -49,7 +49,7 @@ public class DroneCommands {
             _drone.DisableStabilization();
             _drone.Pitch(value,time);
             Log.e("Pitch", "value: " + Integer.toString((int)value) + ", time: " + Integer.toString(time));
-            _drone.EnableStabilization();
+            //_drone.EnableStabilization();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,7 +66,7 @@ public class DroneCommands {
             _drone.DisableStabilization();
             _drone.Roll(value,time);
             Log.e("Turn", "value: " + Integer.toString((int)value) + ", time: " + Integer.toString(time));
-            _drone.EnableStabilization();
+            // _drone.EnableStabilization();
         } catch (Exception e) {
             e.printStackTrace();
         }

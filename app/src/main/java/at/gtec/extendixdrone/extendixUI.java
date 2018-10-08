@@ -467,6 +467,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
         _etRtSpeed = (EditText)findViewById(R.id.etRotationSpeed);
         _etRtDuration = (EditText)findViewById(R.id.etRotationDuration);
         _etFwSpeed = (EditText)findViewById(R.id.etForwardSpeed);
+        _etFwDuration = (EditText)findViewById(R.id.etForwardDuration);
 
         _btnResetCamera = (Button)findViewById(R.id.btnResetCamera);
 
@@ -607,7 +608,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
         final byte speed = 80;
         final int duration = 500;
         final int margin = 200;
-        final int count = 10;
+        final int count = 8;
         final Runnable rotateRight = new Runnable() {
             @Override
             public void run() {
@@ -620,19 +621,26 @@ public class extendixUI extends Activity implements View.OnClickListener {
                 DroneCommands.DroneRotate(_drone, (byte)-speed, duration);
             }
         };
+        final Runnable noRotate = new Runnable() {
+            @Override
+            public void run() {
+                DroneCommands.DroneRotate(_drone, (byte)0, duration);
+            }
+        };
 
         for (int i=0; i<count; i++) {
             mHandler.postDelayed(rotateRight, (duration+margin)*(i*2));
             mHandler.postDelayed(rotateLeft, (duration+margin)*(i*2 + 1));
         }
+        mHandler.postDelayed(noRotate, (duration+margin)*(count*2));
     }
 
     private void swing() {
         Handler mHandler = new Handler();
-        final byte speed = 20;
-        final int duration = 2500;
-        final int margin = 500;
-        final int count = 10;
+        final byte speed = 60;
+        final int duration = 650;
+        final int margin = 200;
+        final int count = 8;
         final Runnable moveRight = new Runnable() {
             @Override
             public void run() {
@@ -645,10 +653,10 @@ public class extendixUI extends Activity implements View.OnClickListener {
                 DroneCommands.DroneTurn(_drone, (byte)-speed, duration);
             }
         };
-        final Runnable land = new Runnable() {
+        final Runnable nonMove = new Runnable() {
             @Override
             public void run() {
-                DroneCommands.DroneLand(_drone);
+                DroneCommands.DroneTurn(_drone, (byte)0, duration);
             }
         };
 
@@ -656,7 +664,7 @@ public class extendixUI extends Activity implements View.OnClickListener {
             mHandler.postDelayed(moveRight, (duration+margin)*(i*2));
             mHandler.postDelayed(moveLeft, (duration+margin)*(i*2 + 1));
         }
-        mHandler.postDelayed(land, (duration+margin)*(count*2));
+        mHandler.postDelayed(nonMove, (duration+margin)*(count*2));
     }
 
     private byte getRotationSpeed() {
